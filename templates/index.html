@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediFolio - Secure Medical Records</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-2 rounded-lg">
+                        <i class="fas fa-heartbeat text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">MediFolio</h1>
+                        <p class="text-xs text-gray-500">Secure Medical Records</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <!-- <div class="flex items-center space-x-2">
+                        <input 
+                            id="navSearchMain" 
+                            type="text"
+                            placeholder="Search blood group (e.g., B+)" 
+                            class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
+                        />
+                        <button 
+                            id="navSearchBtnMain" 
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-300 flex items-center space-x-2"
+                        >
+                            <i class="fas fa-search"></i>
+                            <span>Search</span>
+                        </button>
+                    </div> -->
+                    <!-- <a href="admin-login.html" class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center space-x-1">
+                        <i class="fas fa-edit"></i>
+                        <span>Edit</span>
+                    </a> -->
+                    <a href="#about"
+                        class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center space-x-1">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                    <!-- <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300 flex items-center space-x-1">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a> -->
+
+                    <!--    <button onclick="logout()"
+                        class="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                            </path>
+                        </svg>
+                        <span>Login</span>
+                    </button>  -->
+
+                    <button onclick="logout()"
+                        class="flex items-center space-x-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 8l-4 4m0 0l4 4m-4-4h14m-6-4V7a3 3 0 013-3h4a3 3 0 013 3v10a3 3 0 01-3 3h-4a3 3 0 01-3-3v-1" />
+                        </svg>
+
+                        <span>Logout</span>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 py-3 space-y-3">
+                <!-- <div class="flex items-center space-x-2">
+                    <input 
+                        type="text"
+                        placeholder="Search blood group" 
+                        class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                    <button class="bg-blue-600 text-white px-3 py-2 rounded-lg">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div> -->
+                <!-- <a href="admin-login.html" class="block text-gray-700 hover:text-blue-600 py-2">
+                    <i class="fas fa-edit mr-2"></i>Edit
+                </a> -->
+                <a href="#about" class="block text-gray-700 hover:text-blue-600 py-2">
+                    <i class="fas fa-info-circle mr-2"></i>About
+                </a>
+                <button onclick="logout()"
+                    class="flex items-center space-x-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 8l-4 4m0 0l4 4m-4-4h14m-6-4V7a3 3 0 013-3h4a3 3 0 013 3v10a3 3 0 01-3 3h-4a3 3 0 01-3-3v-1" />
+                    </svg>
+
+                    <span>Logout</span>
+                </button>
+                <!-- <a href="#contact" class="block text-gray-700 hover:text-blue-600 py-2">
+                    <i class="fas fa-envelope mr-2"></i>Contact
+                </a> -->
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+
+        <div class=" bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Quick Actions</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="/add-patient"
+                    class="flex items-center space-x-3 bg-indigo-50 hover:bg-indigo-100 p-4 rounded-lg transition-colors">
+                    <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z">
+                        </path>
+                    </svg>
+                    <span class="font-semibold text-gray-700">Add New Patient</span>
+                </a>
+                <a href="/patient-data"
+                    class="flex items-center space-x-3 bg-green-50 hover:bg-green-100 p-4 rounded-lg transition-colors">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4">
+                        </path>
+                    </svg>
+                    <span class="font-semibold text-gray-700">Search by Fingerprint</span>
+                </a>
+                <a href="/search-blood"
+                    class="flex items-center space-x-3 bg-red-50 hover:bg-red-100 p-4 rounded-lg transition-colors">
+                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                        </path>
+                    </svg>
+                    <span class="font-semibold text-gray-700">Search Blood Group</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-24 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="mb-8">
+                <i class="fas fa-shield-alt text-6xl mb-4 animate-pulse"></i>
+            </div>
+            <h2 class="text-5xl md:text-6xl font-bold mb-6">Welcome to MediFolio</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                A secure and centralized platform to store, access, and manage patient medical records efficiently.
+            </p>
+          <!--   <a href="#"
+                class="inline-flex items-center space-x-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-4 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-xl">
+                <span>Get Started</span>
+                <i class="fas fa-arrow-right"></i>
+            </a> -->
+
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">Key Features</h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">Empowering healthcare with cutting-edge technology</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div
+                        class="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-lock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Data Security</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Encrypted storage of sensitive patient information with strict access control and compliance
+                        with healthcare regulations.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div
+                        class="bg-gradient-to-br from-indigo-500 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-user-md text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Role-Based Access</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Different dashboards for Admin, Doctor, Nurse, and Patient roles with customized permissions and
+                        workflows.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div
+                        class="bg-gradient-to-br from-green-500 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-folder-open text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Easy Record Management</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Upload, view, and manage medical records anytime, anywhere with our intuitive interface and
+                        cloud storage.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-6">
+                <i class="fas fa-university text-5xl text-blue-600"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">About MediFolio</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                MediFolio is a mega project developed as part of the final year curriculum at
+                <strong class="text-blue-600">Government College of Engineering Yavatmal</strong>.
+                It focuses on secure digital management of patient records, reducing manual work and ensuring data
+                confidentiality.
+            </p>
+            <div class="flex justify-center items-center space-x-4 text-gray-600">
+                <i class="fas fa-graduation-cap text-2xl text-blue-600"></i>
+                <span class="text-lg font-semibold">B.Tech EXTC Department</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-8 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="mb-4">
+                <i class="fas fa-heartbeat text-3xl text-blue-400"></i>
+            </div>
+            <p class="text-lg mb-2">&copy; 2025 MediFolio - All Rights Reserved</p>
+            <p class="text-gray-400">
+                Developed by <span class="text-blue-400 font-semibold">Prafull, Pratiksha, Samiksha, Rohan</span>
+            </p>
+            <p class="text-sm text-gray-500 mt-2">B.Tech EXTC | Government College of Engineering Yavatmal</p>
+            <div class="mt-6 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+
+    <!-- Script -->
+    <script>
+
+
+        checkAuth("/admin-login", "!");
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "/admin-login";
+
+        }
+    </script>
+</body>
+
+</html>
