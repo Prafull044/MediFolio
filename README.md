@@ -13,8 +13,13 @@ emergency situations, helping save time and improve decision-making.
 # Packages
 pip install pyfingerprint flask firebase-admin
 # Project Setup
+
 cd medifolio
+
 python3 -m venv venv
+
 source venv/bin/activate
+
 pip install pyfingerprint flask firebase-admin
+
 python main.py
